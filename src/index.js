@@ -15,8 +15,8 @@ servidor.use(cors())
 // ENDPOINTS
 servidor.get("/users", getUsers)
 servidor.post("/users", createUser)
-servidor.patch("/users", updateUser)
-servidor.delete("/users", deleteUser)
+servidor.patch("/users/:id", updateUser)
+servidor.delete("/users/:id", deleteUser)
 
 // CONEXIÓN Y ESCUCHA DEL PUERTO
 servidor.listen(PORT, () => {
