@@ -13,10 +13,8 @@ servidor.use(express.json())
 servidor.use(cors())
 
 // ENDPOINTS
-servidor.get("/users", getUsers)
-servidor.post("/users", createUser)
-servidor.patch("/users/:id", updateUser)
-servidor.delete("/users/:id", deleteUser)
+servidor.use("/api/auth", )
+servidor.use("/api/tasks", )
 
 // CONEXIÓN Y ESCUCHA DEL PUERTO
 servidor.listen(PORT, () => {
