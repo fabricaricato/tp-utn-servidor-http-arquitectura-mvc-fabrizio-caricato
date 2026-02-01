@@ -1,10 +1,10 @@
 meta {
-  name: updateUser
+  name: getTasks
   type: http
-  seq: 3
+  seq: 1
 }
 
-patch {
+get {
   url: http://localhost:50000/users
   body: none
   auth: inherit
@@ -12,4 +12,5 @@ patch {
 
 settings {
   encodeUrl: true
+  timeout: 0
 }
