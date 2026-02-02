@@ -1,4 +1,23 @@
-// import { User } from "../models/user.model.js"
+import { User } from "../models/user.model.js"
+
+const register = async (req, res) => {
+  try {
+    const { username, email, password } = req.body
+
+    if (!username || !email || !password) {
+      res.status(500).json({success: false, error: "debe completar todos los campos para poder registrarse"})
+    }
+
+      const newUser = await User.create({
+        username,
+        email,
+        password
+      })
+  } catch (error) {
+    res.status(400).json({success: false, error: error.message}
+    )
+  }
+}
 
 // const getUsers = async (req, res) => {
 //   try {
