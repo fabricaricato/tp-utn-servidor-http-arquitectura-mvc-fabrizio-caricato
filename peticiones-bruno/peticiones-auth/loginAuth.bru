@@ -1,0 +1,15 @@
+meta {
+  name: loginAuth
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:50000/api/auth/login
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
