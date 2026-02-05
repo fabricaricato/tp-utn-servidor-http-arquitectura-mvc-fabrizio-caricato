@@ -5,9 +5,19 @@ meta {
 }
 
 patch {
-  url: http://localhost:50000/api/tasks
-  body: none
+  url: http://localhost:50000/api/tasks/6983f20fc4fc855bc53f16c6
+  body: json
   auth: inherit
+}
+
+headers {
+  Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTgzZjI3YjgxYTU3NzY1MDQ4NTA3ODEiLCJlbWFpbCI6ImhkZGRkZEBwcnVlYmEuY29tIiwidXNlcm5hbWUiOiJGYWJyaXoiLCJpYXQiOjE3NzAyNTUyOTEsImV4cCI6MTc3MDI1ODg5MX0.dgZ9rjzniZn99YziMl6_I38HQ3nOxq6IbI4x2dVo9WM
+}
+
+body:json {
+  {
+    "description": "tarea prueba 7 (actualizado)"
+  }
 }
 
 settings {

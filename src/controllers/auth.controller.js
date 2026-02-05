@@ -50,7 +50,7 @@ const login = async (req, res) => {
       return res.status(401).json({success: false, error: "Password comparison failed"})
     }
 
-    const payload = {id: foundUser._id, email: foundUser.email, username: foundUser.username }
+    const payload = {_id: foundUser._id, email: foundUser.email, username: foundUser.username }
 
     const createdToken = jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_EXPIRES });
 

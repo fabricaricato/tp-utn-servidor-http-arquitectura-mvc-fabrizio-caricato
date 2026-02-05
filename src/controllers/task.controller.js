@@ -15,8 +15,8 @@ const createTask = async (req, res) => {
     const { title, description } = req.body;
     const newTask = await Task.create({
       title,
-      description
-      // creator: --> configurar luego con el middleware
+      description,
+      creator: req.user.id // Extraemos el ID del usuario que asignamos del decodificado del token en el middleware
     });
 
     return res.status(201).json({ success: true, data: newTask });

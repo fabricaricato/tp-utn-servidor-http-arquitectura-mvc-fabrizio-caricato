@@ -7,10 +7,11 @@ const validateJWT = async (req, res, next) => {
     const token = req.headers['authorization']
 
     if (!token) {
-      return res.status(401).json({ success: false, error: "there is no token in the request" })
+      return res.status(401).json({ success: false, error: "There is no token in the request" })
     }
 
-    jwt.verify(token, JWT_SECRET)
+    const decoded = jwt.verify(token, JWT_SECRET)
+    req.user = decoded
 
     next()
 
