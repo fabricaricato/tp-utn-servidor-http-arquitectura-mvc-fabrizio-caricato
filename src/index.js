@@ -9,17 +9,32 @@ config()
 
 const PORT = process.env.PORT
 
-// CONFIGURACIÓN DEL SERVIDOR
-const servidor = express()
-servidor.use(express.json())
-servidor.use(cors())
+// Configuración del servidor
+const server = express()
+server.use(express.json())
+server.use(cors())
 
-// ENDPOINTS
-servidor.use("/api/auth", authRouter)
-servidor.use("/api/tasks", validateJWT, taskRouter)
+// Endpoints
+server.use("/api/auth", authRouter)
+server.use("/api/tasks", validateJWT, taskRouter)
 
-// CONEXIÓN Y ESCUCHA DEL PUERTO
-servidor.listen(PORT, () => {
+// Ruta de bienvenida para evadir Cannot GET /
+server.get('/', (req, res) => {
+  res.send(`
+    <h1>RESTful API Running! 🚀</h1>
+    <p>Welcome to the Task Manager backend.</p>
+    <p>Main Endpoints:</p>
+    <ul>
+      <li>POST /api/auth/register (Register user)</li>
+      <li>POST /api/auth/login (Login / Get Token)</li>
+      <li>GET /api/tasks (View tasks - Token Required)</li>
+    </ul>
+    <p>Developed by Fabrizio Caricato</p>
+  `);
+});
+
+// Conexión y escucha del puerto
+server.listen(PORT, () => {
   connectDb()
   console.log(`=== 👂 Listening in the port: ${PORT} 👂 ===`)
 })
